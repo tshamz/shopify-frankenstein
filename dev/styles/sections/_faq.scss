@@ -1,0 +1,29 @@
+.accordion {
+   margin: 50px;
+   dt, dd {
+      padding: 10px;
+      border: 1px solid black;
+      border-bottom: 0;
+      &:last-of-type {
+        border-bottom: 1px solid black;
+      }
+      a {
+        display: block;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+      }
+   }
+  dd {
+     border-top: 0;
+     font-size: 12px;
+     -webkit-margin-start: 0;
+     padding-left: 3rem;
+     display: none;
+     &:last-of-type {
+       border-top: 1px solid white;
+       position: relative;
+       top: -1px;
+     }
+  }
+}

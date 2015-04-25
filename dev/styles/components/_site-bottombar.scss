@@ -1,0 +1,22 @@
+.site-bottombar {
+  color: $black;
+  background-color: $pure-white;
+  border-top: 1px solid $alt-pure-white;
+  font-size: $size-2;
+}
+
+.site-bottombar-inner {
+  @include breakpoint {
+    flex-flow: row wrap;
+    text-align: center;
+    > * {
+      flex-basis: 100%;
+      &:first-child {
+        margin-top: 1rem;
+      }
+      &:last-child {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

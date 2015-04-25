@@ -1,0 +1,23 @@
+.email-signup {
+  [type="email"] {
+    border: none;
+    background-color: $white;
+    color: $black;
+    margin-right: -3px;
+    padding: 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+.email-signup-submit {
+  border: none;
+  background-color: $white;
+  color: $alt-orange;
+  line-height: 2.5rem;
+  padding: 0 0.85rem;
+  transition: color 0.3s;
+  &:hover {
+    color: $black;
+  }
+}

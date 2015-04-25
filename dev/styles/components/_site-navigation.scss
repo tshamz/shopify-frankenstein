@@ -1,0 +1,143 @@
+.site-header {
+  position: relative;
+}
+
+.site-topbar,
+.navigation-items {
+  @include breakpoint {
+    transition: transform 0.33s;
+    transform: translateX(-100%);
+    &.is-active {
+      transform: translateX(0);
+    }
+  }
+}
+
+.site-navigation {
+  font-size: $size-3;
+  background-color: $pure-white;
+  border-bottom: 1px solid $alt-pure-white;
+  @include breakpoint {
+    padding-top: $size-1;
+    background-color: $orange;
+  }
+}
+
+.site-navigation-inner {
+  padding: 0 1rem;  // overwrite defaults
+  align-items: stretch;
+  @include breakpoint {
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.navigation-hamburger {
+  display: none;
+  @include breakpoint {
+    cursor: pointer;
+    display: block;
+    margin: 0 !important;
+    img {
+      width: 50%;
+    }
+  }
+}
+
+.navigation-logo {
+  position: relative;
+  z-index: 10;
+  width: 10rem;
+  margin-top: -2rem;
+  vertical-align: bottom;
+  @include breakpoint {
+    width: 5rem;
+    margin-top: -0.5rem;
+  }
+}
+
+.navigation-items {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  color: $orange;
+  text-transform: uppercase;
+  text-align: center;
+  > * {
+    white-space: nowrap;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+    @include breakpoint {
+      margin: 0;
+    }
+  }
+  @include breakpoint {
+    flex-flow: column nowrap;
+    align-items: stretch;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 2.25rem;
+    top: $size-7 + $size-1;
+    background-color: $alt-orange;
+    color: $white;
+    text-transform: uppercase;
+    text-align: left;
+    margin: 0;
+    padding: $size-2 0 $size-2 $mobile-gutter;
+  }
+}
+
+.navigation-item {
+  padding-bottom: 0.25rem;
+  border-bottom: 0.25rem solid transparent;
+  transition: border 0.3s;
+  &:hover {
+    color: $alt-orange;
+    border-bottom: 0.25rem solid $alt-orange;
+    @include breakpoint {
+      color: inherit;
+      border-bottom: none;
+    }
+  }
+  &.is-active {
+    color: $orange;
+    border-bottom: 0.25rem solid $orange;
+    @include breakpoint {
+      color: inherit;
+      border-bottom: none;
+    }
+  }
+  @include breakpoint {
+    padding-top: 0.5rem;
+    border-bottom: none;
+  }
+}
+
+.site-navigation-inner .inline-cart-toggle {
+  cursor: pointer;
+  color: $white;
+  background-color: $orange;
+  font-size: $size-4;
+  text-transform: uppercase;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  .cart-toggle {
+    vertical-align: middle;
+    line-height: $size-7;
+  }
+  .inline-cart-dynamic-counter {
+    font-size: $size-2;
+    padding-left: 0.25rem;
+    line-height: $size-7;
+    @include breakpoint {
+      display: none;
+    }
+  }
+  @include breakpoint {
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

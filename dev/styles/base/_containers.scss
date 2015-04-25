@@ -1,0 +1,36 @@
+.main-container::before {
+  content: '';
+  display: block;
+  display: none;
+  height: 128px;
+  width: 128px;
+  margin: 0 auto;
+}
+
+.template-container:not(.collection-grid-container):not(.homepage-container):not(.related-products-container) {
+  margin-top: $size-8;
+  &.product-container {
+    @include breakpoint {
+      margin-top: $size-6;
+    }
+  }
+  &.page-container {
+    margin-bottom: $size-6;
+    @include breakpoint {
+      margin-top: $size-6;
+      margin-bottom: $size-4;
+    }
+  }
+}
+
+.homepage-container {
+  margin-top: $size-6;
+}
+
+.collection-grid-container {
+  margin-top: $size-10;
+}
+
+.related-products-container {
+  margin-top: $size-9;
+}

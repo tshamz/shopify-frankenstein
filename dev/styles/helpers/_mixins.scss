@@ -1,0 +1,97 @@
+@mixin component-layout($container, $container-height, $layout-style, $item-margin) {
+  #{$container} {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: $container-height;
+    > * {
+      margin-left: $item-margin;
+      margin-right: $item-margin;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @if $layout-style == 'left-aligned' {
+      justify-content: flex-start;
+    }
+    @else if $layout-style == 'right-aligned' {
+      justify-content: flex-end;
+    }
+    @else if $layout-style == 'left-aligned-pull-right' {
+      .pull-right {
+        float: none;
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+    @else if $layout-style == 'right-aligned-pull-left' {
+      .pull-left {
+        float: none;
+        margin-right: auto;
+        margin-left: 0;
+      }
+    }
+    @else if $layout-style == 'justified' {
+      justify-content: space-between;
+    }
+    @else if $layout-style == 'justified-centered' {
+      justify-content: space-around;
+    }
+    @else if $layout-style == 'pseudo-justified' {
+      position: relative;
+      display: block;
+      text-align: center;
+      > * {
+        display: inline-block;
+        line-height: $container-height;
+        &:first-child,
+        &:last-child {
+          position: absolute;
+          top: 0;
+        }
+        &:first-child {
+          left: 0;
+        }
+        &:last-child {
+          right: 0;
+        }
+      }
+    }
+    @else if $layout-style == 'centered' {
+      justify-content: center;
+    }
+  }
+}
+
+@mixin breakpoint {
+  @media (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin max-width-containers($max-width, $gutter, $mobile-gutter, $selectors) {
+  #{$selectors} {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    @include breakpoint {
+      padding-left: $mobile-gutter;
+      padding-right: $mobile-gutter;
+    }
+  }
+}
+
+@keyframes swinging-header {
+  0% { transform: perspective(15rem) rotate3d(1, 0, 0, -80deg) translateY(49px); }
+  20% { transform: perspective(25rem) rotate3d(1, 0, 0, 60deg) translateY(49px); }
+  40% { transform: perspective(25rem) rotate3d(1, 0, 0, -40deg) translateY(49px); }
+  60% { transform: perspective(25rem) rotate3d(1, 0, 0, 25deg) translateY(49px); }
+  80% { transform: perspective(25rem) rotate3d(1, 0, 0, -10deg) translateY(49px); }
+  100% { transform: perspective(25rem) rotate3d(1, 0, 0, 0) translateY(49px); }
+}
+

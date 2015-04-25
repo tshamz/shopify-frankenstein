@@ -1,0 +1,66 @@
+.site-footer {
+  background-color: $orange;
+  border-top: 1px solid $alt-orange;
+  .social-media-links {
+    justify-content: flex-end !important;
+  }
+}
+
+.site-footer-inner {
+  justify-content: space-between !important;
+  align-items: flex-start;
+  color: $white;
+  padding-top: $size-4;
+  padding-bottom: $size-4;
+  @include breakpoint {
+    flex-flow: row wrap;
+  }
+}
+
+.logo-container {
+  @include breakpoint {
+    flex-basis: 100%;
+    margin-bottom: $size-3;
+    text-align: center;
+  }
+}
+
+.logo {
+  width: 10rem;
+}
+
+.footer-item.email-signup {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  > * {
+    flex: 1 0 auto;
+  }
+  h3 {
+    text-transform: uppercase;
+    margin-bottom: $size-2;
+    @include breakpoint {
+      font-size: $size-3;
+    }
+  }
+  form {
+    text-align: right;
+  }
+  .klaviyo_messages {
+    margin-top: $size-2;
+  }
+  @include breakpoint {
+    flex-basis: 100%;
+    align-items: center;
+  }
+}
+
+.site-footer .footer-item.email-signup .social-media-links a {
+  color: $alt-orange;
+  font-size: $size-4;
+  margin-top: $size-2;
+  &:hover {
+    color: $black;
+  }
+}
+

@@ -1,0 +1,77 @@
+.contact-form.overlay-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  width: 95%;
+  max-width: 30rem;
+  background-color: $pure-white;
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    > * {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: baseline;
+    }
+    label {
+      flex-basis: 25%;
+    }
+    textarea {
+      flex-basis: 100%;
+      margin-bottom: $size-2;
+      height: 10rem;
+      padding: 0.6rem;
+    }
+    input {
+      margin-bottom: $size-2;
+      padding: 0.5rem;
+    }
+    button {
+      margin-bottom: $size-2;
+      text-align: center;
+      display: inline-block;
+      border: none;
+      background-color: $orange;
+      color: $white;
+      padding: 0.25rem 1.25rem;
+      transition: background-color 0.3s, color 0.3s;
+      &:hover {
+        background-color: $alt-orange;
+      }
+    }
+  }
+}
+
+.contact-heading {
+  margin-bottom: $size-4;
+}
+
+.contact-close {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  transform: rotate(45deg);
+  color: $black;
+  font-weight: $weight-bold;
+  font-size: $size-6;
+  cursor: pointer;
+}
+
+.contact-name,
+.contact-email {
+  input {
+    flex-basis: 75%;
+  }
+}
+
+.contact-email {
+  margin-bottom: $size-6;
+}
+
+.contact-message {
+  label {
+    flex-basis: 100% !important;
+  }
+
+}

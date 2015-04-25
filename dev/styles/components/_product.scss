@@ -1,0 +1,180 @@
+.product-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  @include breakpoint {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}
+
+.product-images {
+  flex-basis: 37.5%;
+  @include breakpoint {
+    flex-basis: 100%;
+  }
+}
+
+.image-main {
+  flex: 1 0 auto;
+  margin-bottom: $size-1;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.image-thumbnails {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: $size-2;
+  .image-thumbnail {
+    flex-basis: 5rem;
+    cursor: pointer;
+    opacity: 0.25;
+    &.is-active {
+      opacity: 1;
+    }
+  }
+  @include breakpoint {
+    margin-bottom: $size-1;
+  }
+}
+
+.product-information {
+  flex-basis: 50%;
+  @include breakpoint {
+    flex-basis: 95%;
+  }
+
+}
+
+.product-title {
+  font-size: $size-5;
+  margin-bottom: $size-3;
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.product-description {
+  color: $gray;
+  margin-bottom: $size-3;
+}
+
+.product-options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  text-transform: uppercase;
+  background-color: $pure-white;
+  border: 2px solid $alt-pure-white;
+  border-radius: 4px;
+  [class$="-label"] {
+    display: inline-block;
+    color: $orange;
+    font-size: $size-2;
+    &:not(.product-quantity-label) {
+      width: 3rem;
+      text-align: right;
+      + * {
+        margin-left: 2rem;
+      }
+    }
+    ~ {
+      font-size: $size-4;
+    }
+  }
+  > * {
+    padding: 1rem 1.25rem;
+  }
+}
+.product-price {
+  flex-basis: 70%;
+}
+
+.product-quantity {
+  position: relative;
+  flex-basis: 20%;
+  padding: 1rem 0;
+  width: 2.5rem;
+  border-left: 2px solid $alt-pure-white;
+  text-align: center;
+  .incrementor,
+  .decrementer {
+    position: absolute;
+    cursor: pointer;
+    margin-left: -0.25rem;
+    line-height: 0.6rem;
+  }
+  .incrementor {
+    top: 1.2rem;
+    font-size: 0.8rem;
+  }
+  .decrementer {
+    bottom: 1.2rem;
+    font-size: 0.95rem;
+  }
+  input {
+    outline: 0;
+    position: relative;
+    width: 2rem;
+    text-align: center;
+    border: none;
+  }
+  @include breakpoint {
+    width: 1rem;
+  }
+}
+
+.product-variants-select {
+  flex-basis: 100%;
+  border-top: 2px solid $alt-pure-white;
+  select {
+    outline: 0;
+    position: relative;
+    background-color: $pure-white;
+    border: none;
+    text-transform: uppercase;
+    width: 50%;
+  }
+}
+
+.product-add-to-cart {
+  margin-bottom: $size-1;
+  text-align: center;
+  padding-top: $size-6;
+}
+
+.add-to-cart-button {
+  position: relative;
+  border: none;
+  background-color: $orange;
+  color: $white;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  width: 75%;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  &:hover {
+    background-color: $alt-orange;
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -$size-6;
+    height: $size-6;
+    width: 7px;
+  }
+  &::before {
+    left: 2rem;
+    background-image: url({{ '2chainz.png' | asset_url }});
+  }
+  &::after {
+    right: 2rem;
+    background-image: url({{ '2chainz.png' | asset_url }});
+  }
+}
+

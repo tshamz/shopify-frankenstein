@@ -1,0 +1,58 @@
+// ============================================================================
+//  ______     ______     __   __     ______   __     ______
+// /\  ___\   /\  __ \   /\ "-.\ \   /\  ___\ /\ \   /\  ___\
+// \ \ \____  \ \ \/\ \  \ \ \-.  \  \ \  __\ \ \ \  \ \ \__ \
+//  \ \_____\  \ \_____\  \ \_\\"\_\  \ \_\    \ \_\  \ \_____\
+//   \/_____/   \/_____/   \/_/ \/_/   \/_/     \/_/   \/_____/
+//
+// ============================================================================
+
+// @mixin component-layout($container, $container-height, $layout-style, $item-padding);
+//
+// @param $container :: string :: the selector used to as the component container
+// @param $container-height :: int :: $size-[1-12,min,base,important,max]
+// @param $layout-style :: 'left-aligned'
+//                         'right-aligned'
+//                         'left-aligned-pull-right'
+//                         'right-aligned-pull-left'
+//                         'justified'
+//                         'justified-centered'
+//                         'pseudo-justified'
+//                         'centered'
+// @param $item-padding :: int :: number
+
+$topbar-height:          $size-6;
+$navigationbar-height:   $size-7;
+$footer-height:          auto;
+$bottombar-height:       $size-6;
+
+$max-width-container-size: 60rem;
+$gutter: 2rem;
+$mobile-gutter: 1rem;
+$max-width-container-selectors: '.site-topbar-inner, .site-navigation-inner, .product-grid-container, .product-container, .homepage-container, .site-footer-inner, .template-container, .cart-container, .collection-title-container';
+
+
+// TOPBAR
+// ------------------------
+//
+@include component-layout('.site-topbar-inner', $topbar-height, 'right-aligned', 0.75rem);
+
+// NAVIGATIONBAR
+// ------------------------
+//
+@include component-layout('.site-navigation-inner', $navigationbar-height, 'left-aligned-pull-right', 1rem);
+
+// FOOTER
+// ------------------------
+//
+@include component-layout('.site-footer-inner', $footer-height, 'justified', 0.75rem);
+
+// BOTTOMBAR
+// ------------------------
+//
+@include component-layout('.site-bottombar-inner', $bottombar-height, 'centered', 0.5rem);
+
+// MAX-WIDTH CONTAINERS
+// ------------------------
+//
+@include max-width-containers($max-width-container-size, $gutter, $mobile-gutter, $max-width-container-selectors);

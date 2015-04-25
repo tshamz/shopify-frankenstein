@@ -1,0 +1,102 @@
+.klaviyo_modal .klaviyo_inner {
+  font-family: $montserrat !important;
+  width: 35rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateX(-50%);
+  .top-two-thirds-ish {
+    background-color: $orange;
+    background-image: url({{ 'modal-background-image.jpeg' | asset_url }});
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding: 1rem 2rem 0 2rem;
+  }
+  .bottom-one-third-ish {
+    background-color: $alt-orange;
+    padding: 0 2rem 2rem 2rem;
+  }
+}
+
+.klaviyo_modal_logo {
+  width: 30%;
+  margin: 0 auto $size-4;
+  display: block;
+}
+
+.klaviyo_close_modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.klaviyo_modal_heading,
+.klaviyo_modal_subheading {
+  color: $white;
+  text-align: center;
+}
+
+.klaviyo_modal_heading {
+  flex-basis: 100%;
+  font-size: 6.75rem;
+  letter-spacing: -7px;
+  text-transform: uppercase;
+  padding-bottom: $size-6;
+  .percentage-sign {
+    font-size: 4rem;
+    vertical-align: super;
+  }
+}
+
+.klaviyo_modal_subheading {
+  flex-basis: 100%;
+  font-size: 1rem;
+  padding-top: $size-5;
+  padding-bottom: $size-4;
+}
+
+.klaviyo_subscription_form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 2.625rem;
+}
+
+.klaviyo_field_group.email-input {
+  flex-basis: 65%;
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+  }
+}
+
+div.klaviyo_form_actions.form-submit {
+  flex-basis: 15%;
+  margin: 0;
+  padding: 0;;
+  border: none;
+}
+
+.klaviyo_modal button.klaviyo_submit_button {
+  height: 2.625rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: $orange;
+  background-image: none;
+  padding: 0.75rem;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: lighten($alt-orange, 20%);
+  }
+}
+
+.klaviyo_form_success_message {
+  display: none;
+  color: $white;
+}

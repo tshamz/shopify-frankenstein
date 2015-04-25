@@ -1,0 +1,54 @@
+.main-container {
+  .collection-title-container {
+    position: relative;
+    padding-left: 4rem;
+  }
+  .collection-grid-title {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background-color: rgb(255, 253, 249);
+    line-height: 0.5;
+    text-shadow: 0px -3px 8px rgb(200, 200, 200);
+    margin-left: 0.25rem;
+    transform: translateY(49px);
+    transform-origin: top;
+    animation: swinging-header 3s ease-in-out;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: -49px;
+      height: 42px;
+      width: 7px;
+    }
+    &::before {
+      left: 8px;
+      background-image: url({{ '2chainz.png' | asset_url }});
+    }
+    &::after {
+      right: 8px;
+      background-image: url({{ '2chainz.png' | asset_url }});
+    }
+  }
+}
+
+.collection-grid-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  &::before,
+  &::after {
+    @extend .collection-grid-item;
+    content: '';
+    order: 1;
+    height: 0;
+  }
+}
+
+.grid-spacer {
+  @extend .collection-grid-item;
+  order: 1;
+  height: 0;
+}
+

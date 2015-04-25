@@ -1,0 +1,25 @@
+.alert.overlay-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  width: 95%;
+  max-width: 30rem;
+  background-color: $pure-white;
+}
+
+.alert-heading {
+  color: $bs-color-danger;
+  margin-bottom: $size-2;
+}
+
+.alert-close {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  transform: rotate(45deg);
+  color: $black;
+  font-weight: $weight-bold;
+  font-size: $size-6;
+  cursor: pointer;
+}

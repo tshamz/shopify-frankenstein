@@ -1,0 +1,26 @@
+.related-products-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.related-products {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  > * {
+    flex-basis: 20%;
+    @include breakpoint {
+      flex-basis: 38%;
+    }
+  }
+  @include breakpoint {
+    flex-flow: row wrap;
+  }
+}
+
+.related-products-heading {
+  text-align: left;
+  margin-bottom: $size-7;
+  font-size: $size-3;
+  color: $gray;
+}

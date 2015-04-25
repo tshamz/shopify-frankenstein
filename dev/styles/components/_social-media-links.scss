@@ -1,0 +1,94 @@
+.social-media-links {
+  font-size: $size-5;
+  i {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  :first-child i {
+    padding-left: 0;
+  }
+  :last-child i {
+    padding-right: 0;
+  }
+}
+
+.social-media-links {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1.75rem;
+  .site-topbar & {
+    justify-content: space-around;
+  }
+  .site-footer & {
+    justify-content: flex-end;
+  }
+  a {
+    transition: color 0.3s;
+    &:hover {
+      color: $black;
+    }
+    &.pinterest-icon:hover {
+      // color: rgba(203, 32, 39, 1);
+    }
+    &.instagram-icon:hover {
+      // color: rgba(81, 127, 164, 1);
+    }
+    &.facebook-icon:hover {
+      // color: rgba(59, 89, 152, 1);
+    }
+  }
+}
+
+.product-social-sharing {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  > * {
+    margin-right: 0.5rem;
+  }
+  .social-sharing-prompt {
+    color: $orange;
+    text-transform: uppercase;
+    font-size: $size-2;
+    margin-right: 1.5rem;
+  }
+  .social-sharing-icon {
+    color: $pure-white !important;
+    font-size: 1.25rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2rem;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    transition: background-color 0.33s;
+    &.facebook {
+      background-color: rgb(37, 92, 149);
+      &:hover {
+        background-color: rgb(27, 67, 108);
+      }
+    }
+    &.twitter {
+      background-color: rgb(0, 180, 224);
+      &:hover {
+        background-color: rgb(0, 139, 173);
+      }
+    }
+    &.pinterest {
+      background-color: rgb(203, 32, 39);
+      &:hover {
+        background-color: rgb(159, 25, 31);
+      }
+    }
+    &.google-plus {
+      background-color: rgb(241, 64, 58);
+      &:hover {
+        background-color: rgb(232, 24, 16);
+      }
+    }
+  }
+  @include breakpoint {
+    justify-content: center;
+    margin-bottom: $size-6;
+  }
+}

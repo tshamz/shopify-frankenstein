@@ -1,0 +1,166 @@
+[class^=homepage-]:not(.homepage-container):not(.homepage-marquee-image) {
+  display: flex;
+}
+
+.homepage-marquee-image {
+  margin-bottom: $size-3;
+  > img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.homepage-collection-links {
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: $size-3;
+  @include breakpoint {
+    flex-flow: row wrap;
+  }
+}
+
+.collection-link {
+  position: relative;
+  text-align: center;
+  flex-basis: 32%;
+  @include breakpoint {
+    flex-basis: 100%;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.collection-link:hover .colleciton-{
+
+}
+
+.collection-title {
+  display: none;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: -$size-9/2;
+  font-size: $size-6;
+  .collection-link:hover & {
+    display: block;
+    + a img {
+      opacity: 0.3;
+    }
+  }
+}
+
+.section-heading {
+  flex-basis: 100%;
+  background-color: $orange;
+  border: 1px solid $alt-pure-white;
+  // border-radius: 5px;
+  color: rgba(245, 245, 245, 1);
+  font-size: $size-4;
+  text-transform: uppercase;
+  text-shadow: -2px 2px 0px $alt-orange;
+  text-align: center;
+  margin-bottom: $size-5;
+  padding-top: $size-1;
+  padding-bottom: $size-1;
+}
+
+.section-subheading {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: $size-1;
+}
+
+.homepage-best-sellers,
+.homepage-social-staches {
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.homepage-best-sellers {
+  &::before,
+  &::after {
+    @extend .collection-grid-item;
+    content: '';
+    order: 1;
+    height: 0;
+  }
+}
+
+
+.unslider {
+  position: relative;
+  overflow: auto;
+  flex-basis: 60%;
+  ul li {
+    float: left;
+  }
+  li {
+    list-style: none;
+  }
+  @include breakpoint {
+    flex-basis: 100%;
+  }
+}
+
+.seen-on-tv {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  .tv-item {
+    flex-basis: 31.5%;
+    margin-bottom: $size-5;
+  }
+}
+
+.homepage-social-staches {
+  margin-bottom: $size-5;
+}
+
+.best-seller-item {
+  flex-basis: 22.5%;
+  margin-bottom: $size-5;
+}
+
+.shoutout-to-them-freshmen {
+  flex-basis: 30%;
+  display: flex;
+  flex-flow: row wrap;
+  > * {
+    flex: 1 0 100%;
+  }
+  @include breakpoint {
+    flex-basis: 100%;
+  }
+}
+
+.instagram-thing-heading {
+  text-align: center;
+}
+
+.instagram-thing-main {
+  margin-bottom: $size-2;
+  position: relative;
+}
+
+.main-image-entry-point {
+  position: absolute;
+  top: 9.3%;
+  right: 11%;
+  left: 10.8%;
+}
+
+.instagram-thing-thumbnails {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  > * {
+    flex-basis: 22.5%;
+  }
+  img {
+    max-width: 60px;
+    max-width: 60px;
+  }
+}
