@@ -31,10 +31,11 @@
         Products.renderProduct(state);
         break;
       case 'homepage':
-        $.get('/index?view=template', function(response) {
-          $('#guts').html(response);  // first callback
+        $.get('/index?view=template', function(response) {  // first callback
+          $('#guts').html(response);
         })
-        .done(function() {
+        .done(function() {  // second callback
+          $('.unslider').unslider();
           Collections.renderHomepageCollections();
         });
         break;

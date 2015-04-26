@@ -10,7 +10,7 @@
           React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("img", {className: "item-image", src: this.props.item.images[0].src, itemprop: "image"})), 
           React.createElement("div", {className: "item-price", itemscope: "", itemtype: "http://schema.org/Offer", itemprop: "offers"}, 
             React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"), 
-            React.createElement("span", {itemprop: "price", content: this.props.item.variants[0].price}, this.props.item.variants[0].price)
+            React.createElement("span", {itemprop: "price", content: this.props.item.variants[0].price/100}, this.props.item.variants[0].price/100)
           ), 
           React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("div", {className: "item-title", itemprop: "name"}, this.props.item.title))
         )

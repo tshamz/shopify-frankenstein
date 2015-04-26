@@ -31,10 +31,6 @@
   }
 }
 
-.collection-link:hover .colleciton-{
-
-}
-
 .collection-title {
   display: none;
   position: absolute;
@@ -47,7 +43,15 @@
   .collection-link:hover & {
     display: block;
     + a img {
-      opacity: 0.3;
+      opacity: 0.25;
+    }
+  }
+  @include breakpoint {
+    .collection-link & {
+      display: block;
+      + a img {
+        opacity: 0.25;
+      }
     }
   }
 }
@@ -86,6 +90,15 @@
     content: '';
     order: 1;
     height: 0;
+    margin-bottom: 0;
+  }
+}
+
+.slider-container {
+  flex-basis: 67.5%;
+  @include breakpoint {
+    flex-basis: 100%;
+    margin-bottom: $size-4;
   }
 }
 
@@ -93,15 +106,11 @@
 .unslider {
   position: relative;
   overflow: auto;
-  flex-basis: 60%;
   ul li {
     float: left;
   }
   li {
     list-style: none;
-  }
-  @include breakpoint {
-    flex-basis: 100%;
   }
 }
 
@@ -125,7 +134,7 @@
 }
 
 .shoutout-to-them-freshmen {
-  flex-basis: 30%;
+  flex-basis: 27.5%;
   display: flex;
   flex-flow: row wrap;
   > * {
@@ -162,5 +171,8 @@
   img {
     max-width: 60px;
     max-width: 60px;
+  }
+  @include breakpoint {
+    justify-content: center;
   }
 }

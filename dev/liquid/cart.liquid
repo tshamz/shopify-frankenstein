@@ -1,0 +1,43 @@
+<div class="cart-container">
+  {% if cart.item_count > 0 %}
+    <form action="/cart" method="post">
+      <table class="table-cart">
+        <thead>
+          <tr>
+            <th class="table-cart-head-remove">&nbsp;</th>
+            <th class="table-cart-head-image">&nbsp;</th>
+            <th class="table-cart-head-product">Product</th>
+            <th class="table-cart-head-price">Price</th>
+            <th class="table-cart-head-quantity">Quantity</th>
+            <th class="table-cart-head-total">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+            <tr>
+              <td class="table-cart-item-remove"><a href="http://bva-tyler3.myshopify.com/cart/change?line={{ forloop.index }}&quantity=0">×</a></td>
+              <td class="table-cart-item-thumbnail"><a href="http://bva-tyler3.myshopify.com{{ collection_url }}{{ item.url }}"><img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}" /></a></td>
+              <td class="table-cart-item-title"><a href="http://bva-tyler3.myshopify.com/{{ collection_url }}{{ item.url }}">{% if item.variant.option1 contains 'Default' %}{{ item.product.title }}{% else %}{{ item.product.title }} - {{ item.variant.option1 }}{% endif %}</a></td>
+              <td class="table-cart-item-price"data-variant-id="{{ item.variant_id }}">${{ item.price | money_without_currency }}</td>
+              <td class="table-cart-item-quantity"><input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-variant-id="{{ item.variant_id }}" /></td>
+              <td class="table-cart-item-total" data-variant-id="{{ item.variant_id }}">${{ item.line_price | money_without_currency }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="cart-submit">
+        <input class="cart-submit-update" type="submit" name="update" value="Update cart" />
+        <input class="cart-submit-checkout" type="submit" name="checkout" value="Checkout" />
+        <div class="cart-submit-subtotal">
+          <div class="cart-subtotal-text">Subtotal</div>
+          <div class="cart-subtotal-value">${{ cart.total_price | money_without_currency }}</div>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <div>
+      <div>Your cart is empty!</div>
+      <div>You can continue browsing <a href="http://bva-tyler3.myshopify.com/collections/all">here</a>.</div>
+    </div>
+  {% endif %}
+</div>

@@ -8,16 +8,15 @@
   margin-left: 3.75%;
   margin-right: 3.75%;
   font-size: 1.1rem;
-  &:hover .inline-add-to-cart-button {
-    opacity: 1.0;
-  }
   .item-price {
-    // margin-bottom: $size-1;
     color: $orange;
     font-size: 0.8rem;
   }
   .item-title {
     line-height: 1;
+    @include breakpoint {
+      font-size: 0.75rem;
+    }
   }
   @include breakpoint {
     flex-basis: 40%;
@@ -25,8 +24,26 @@
   }
 }
 
+.collection-grid-container .collection-grid-item[data-product-in-stock="false"] {
+  opacity: 0.4;
+  .image-link::before {
+    content: 'Sold Out';
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: translate(-50%, -50%) rotate(-30deg);
+  }
+}
+
+.collection-grid-item:hover .inline-add-to-cart-button {
+  opacity: 1.0;
+}
+
 .item-image {
-  cursor: pointer;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: $size-2;

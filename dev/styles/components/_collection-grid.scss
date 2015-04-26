@@ -2,6 +2,9 @@
   .collection-title-container {
     position: relative;
     padding-left: 4rem;
+    @include breakpoint {
+      padding-left: 1rem;
+    }
   }
   .collection-grid-title {
     display: inline-block;

@@ -26,6 +26,11 @@
 .site-navigation-inner {
   padding: 0 1rem;  // overwrite defaults
   align-items: stretch;
+  .navigation-logo {
+    @include breakpoint {
+      margin-left: 0;
+    }
+  }
   @include breakpoint {
     justify-content: space-between;
     padding-left: 1rem;
@@ -125,7 +130,7 @@
   padding-right: 2rem;
   .cart-toggle {
     vertical-align: middle;
-    line-height: $size-7;
+    line-height: 2rem;
   }
   .inline-cart-dynamic-counter {
     font-size: $size-2;

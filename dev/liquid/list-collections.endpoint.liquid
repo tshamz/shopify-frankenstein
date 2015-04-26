@@ -1,14 +1,14 @@
 {% layout none %}{ {% for collection in collections %}
-  "{{ collection.handle }}": {
-    {% if collection.image %}"image": "{{ collection.image }}",{% endif %}
-    "body_html": "{{ collection.description }}",
-    "handle": "{{ collection.handle }}",
-    "id": {{ collection.id }},
-    "sort_order": "{{ collection.default_sort_by }}",
-    "template_suffix": "{{ collection.template_suffix }}",
-    "title": "{{ collection.title }}",
-    "products_count": {{ collection.products_count }},
-    "url": "{{ collection.url }}",
-    "products": {% paginate collection.products by 9001 %}[{% for product in collection.products %}{{ product.id }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endpaginate %}
-  }{% unless forloop.last %},{% endunless %}
+"{{ collection.handle }}": {
+  {% if collection.image %}"image": "{{ collection.image }}",{% endif %}
+  "body_html": "{{ collection.description }}",
+  "handle": "{{ collection.handle }}",
+  "id": {{ collection.id }},
+  "sort_order": "{{ collection.default_sort_by }}",
+  "template_suffix": "{{ collection.template_suffix }}",
+  "title": "{{ collection.title }}",
+  "products_count": {{ collection.products_count }},
+  "url": "{{ collection.url }}",
+  "products": {% paginate collection.products by 9001 %}[{% for product in collection.products %}{{ product.id }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endpaginate %}
+}{% unless forloop.last %},{% endunless %}
 {% endfor %}}

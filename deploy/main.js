@@ -1,3 +1,49 @@
+(function(Analytics, $, undefined) {
+
+  window._learnq = window._learnq || [];
+
+  Analytics.gaPageView = function() {
+   // ga('send', 'pageview');
+  };
+
+  Analytics.klavyioPageView = function(productHandle) {
+    var product = Resources.getProduct(productHandle);
+    _learnq.push(['track', 'Viewed Product', {
+      Name: product.title,
+      ProductID: product.id,
+      Categories: product.memberOfCollection
+    }]);
+  };
+
+  Analytics.init = function() {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function () {
+      var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+      b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+      var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+    })();
+    KlaviyoSubscribe.attachToForms('#email_signup', {
+      hide_form_on_success: true
+    });
+    KlaviyoSubscribe.attachToModalForm('#klaviyo-modal', {
+      delay_seconds: 2,
+      success: function ($form) {
+        $('.klaviyo_inner')
+          .find('.klaviyo_close_modal, .email-input, .form-submit').fadeOut('fast', function() {
+            $('.klaviyo_modal_coupon_code').fadeIn('fast');
+          });
+      }
+    });
+    _learnq.push(['account', 'hiQ7mU']);
+    ga('create', 'UA-49478618-6', 'auto');
+    ga('send', 'pageview');
+  };
+
+}(window.Analytics = window.Analytics || {}, jQuery));
+
 (function(Cart, $, undefined) {
 
   // Private
@@ -122,7 +168,7 @@
           React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("img", {className: "item-image", src: this.props.item.images[0].src, itemprop: "image"})), 
           React.createElement("div", {className: "item-price", itemscope: "", itemtype: "http://schema.org/Offer", itemprop: "offers"}, 
             React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"), 
-            React.createElement("span", {itemprop: "price", content: this.props.item.variants[0].price}, this.props.item.variants[0].price)
+            React.createElement("span", {itemprop: "price", content: this.props.item.variants[0].price/100}, this.props.item.variants[0].price/100)
           ), 
           React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("div", {className: "item-title", itemprop: "name"}, this.props.item.title))
         )
@@ -171,6 +217,27 @@
 
 }(window.Collections = window.Collections || {}, jQuery));
 
+(function(Contact, $, undefined) {
+
+  var bindUIActions = function() {
+    $('form.contact-form').submit(function(){
+      Overlay.hideOverlay();
+      $.post($(this).attr('action'), $(this).serialize(), function() {
+        $('form.contact-form')[0].reset();
+      });
+      return false;
+    });
+    $(document).on('click', '.contactform-link', function() {
+      Overlay.showOverlay('.contact-form');
+    });
+  };
+
+  Contact.init = function() {
+    bindUIActions();
+  };
+
+}(window.Contact = window.Contact || {}, jQuery));
+
 (function(Navigation, $, undefined) {
 
 // Private
@@ -204,10 +271,11 @@
         Products.renderProduct(state);
         break;
       case 'homepage':
-        $.get('/index?view=template', function(response) {
-          $('#guts').html(response);  // first callback
+        $.get('/index?view=template', function(response) {  // first callback
+          $('#guts').html(response);
         })
-        .done(function() {
+        .done(function() {  // second callback
+          $('.unslider').unslider();
           Collections.renderHomepageCollections();
         });
         break;
@@ -525,11 +593,69 @@
 
 }(window.Resources = window.Resources || {}, jQuery));
 
+(function(Social, $, undefined) {
+
+  (function(d){
+    var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+    p.type = 'text/javascript';
+    p.async = true;
+    p.src = '//assets.pinterest.com/js/pinit.js';
+    f.parentNode.insertBefore(p, f);
+  }(document));
+
+  var bindUIActions = function() {
+    $(document).on('click', '.social-sharing-icon', function() {
+      switch($(this).data('network')) {
+        case 'facebook':
+          window.open('http://www.facebook.com/sharer/sharer.php?u=' + window.location.href, 'Facebook', "width=600, height=400, scrollbars=no");
+          break;
+        case 'twitter':
+          window.open('http://www.twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), 'Tweet', "width=600, height=400, scrollbars=no");
+          break;
+        case 'pinterest':
+          var url = encodeURIComponent(window.location.href);
+          var imgURL = encodeURIComponent($('.image-main img').attr('src'));
+          var description = $('.product-description').text();
+          window.open('http://pinterest.com/pin/create/button/?url=' + url + '&media=' + imgURL + '&description=' + description, 'Pinterest', "width=600, height=400, scrollbars=no");
+          break;
+      }
+    });
+    $(document).on('click', '.instagram-thing-thumbnails a', function() {
+      $('.main-image-entry-point').empty().append($(this).clone());;
+      return false;
+    });
+  };
+
+  Social.instagramFeed = function() {
+    $('.instagram-thing-thumbnails').instagramLite({
+      clientID:"dc653a3c87cd441b97af3b9b279ed565",
+      username:"sunstaches",
+      list:false,
+      videos:false,
+      urls:true,
+      limit:4,
+      success: function() {
+        $('.instagram-thing-thumbnails').children().first().clone().appendTo('.main-image-entry-point');
+        while ($('.instagram-thing-thumbnails a').length < 4) {
+          $('.instagram-thing-thumbnails a').first().clone().prependTo('.instagram-thing-thumbnails');
+        }
+      }
+    });
+  };
+
+  Social.init = function() {
+    bindUIActions();
+  };
+
+}(window.Social = window.Social || {}, jQuery));
+
 (function() {
 
   Resources.init();
   Navigation.init();
   Overlay.init();
   Cart.init();
+  Contact.init();
+  Social.init();
 
 })();

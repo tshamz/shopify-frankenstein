@@ -13,6 +13,14 @@
       flex-basis: 38%;
     }
   }
+  // &::before,
+  // &::after {
+  //   @extend .collection-grid-item;
+  //   content: '';
+  //   order: 1;
+  //   height: 0;
+  //   margin-bottom: 0;
+  // }
   @include breakpoint {
     flex-flow: row wrap;
   }

@@ -1,6 +1,7 @@
 .email-signup {
   [type="email"] {
     border: none;
+    border-radius: 0 !important;
     background-color: $white;
     color: $black;
     margin-right: -3px;

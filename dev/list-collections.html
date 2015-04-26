@@ -1,3 +1,0 @@
-{% layout none %}{% paginate collections by 300 %}{"collections": [
-{% for collection in collections %}{% assign c=collection.handle %}{"handle": "{{ collection.handle }}", "productsCount": {{collection.products_count }}, "products": [{% for product in collections[c].all_products %}"{{ product.id }}"{% if forloop.last %}{% else %},{% endif %}{% endfor %}]}
-{% if forloop.last %}{% else %},{% endif %}{% endfor %}]}{%endpaginate%}

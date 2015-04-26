@@ -54,6 +54,7 @@ img {
 }
 
 a {
+  outline: 0 !important;
   transition: color 0.3s;
   &:link {
     color: inherit;

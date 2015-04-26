@@ -20,6 +20,7 @@
 .logo-container {
   @include breakpoint {
     flex-basis: 100%;
+    margin-right: 0;
     margin-bottom: $size-3;
     text-align: center;
   }
@@ -45,6 +46,12 @@
   }
   form {
     text-align: right;
+    @include breakpoint {
+      text-align: center;
+      [type="email"] {
+        width: 75%;
+      }
+    }
   }
   .klaviyo_messages {
     margin-top: $size-2;
@@ -52,6 +59,7 @@
   @include breakpoint {
     flex-basis: 100%;
     align-items: center;
+    margin-left: 0;
   }
 }
 

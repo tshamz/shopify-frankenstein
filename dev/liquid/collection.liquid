@@ -1,0 +1,6 @@
+<div class="collection-title-container"><h1 class="collection-grid-title"></h1></div>
+{% assign products_per_page = 300 %}{% paginate collection.products by products_per_page %}
+<div style="visibility: hidden;" class="collection-grid-container template-container" data-collection-container>
+{% for product in collection.products %}<div class="collection-grid-item" itemscope itemtype="http://schema.org/Product"><a href="/products/{{ product.handle }}"><img class="item-image" src="{{ product | img_url: 'grande' }}" itemprop="image"></a><div class="item-vendor" itemprop="brand">{{ product.vendor }}</div><div class="item-title" itemprop="name">{{ product.title }}</div><div class="item-price" itemscope itemtype="http://schema.org/Offer" itemprop="offers"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="{{ product.price | money_without_currency }}">{{ product.price | money_without_currency }}</span></div></div>{% endfor %}
+</div>
+{% endpaginate %}

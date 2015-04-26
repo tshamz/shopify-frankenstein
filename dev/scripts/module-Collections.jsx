@@ -10,7 +10,7 @@
           <a href={"/products/" + this.props.item.handle}><img className="item-image" src={this.props.item.images[0].src} itemprop="image" /></a>
           <div className="item-price" itemscope="" itemtype="http://schema.org/Offer" itemprop="offers">
             <span itemprop="priceCurrency" content="USD">$</span>
-            <span itemprop="price" content={this.props.item.variants[0].price}>{this.props.item.variants[0].price}</span>
+            <span itemprop="price" content={this.props.item.variants[0].price/100}>{this.props.item.variants[0].price/100}</span>
           </div>
           <a href={"/products/" + this.props.item.handle}><div className="item-title" itemprop="name">{this.props.item.title}</div></a>
         </div>

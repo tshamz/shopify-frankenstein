@@ -1,6 +1,7 @@
 .klaviyo_modal .klaviyo_inner {
   font-family: $montserrat !important;
-  width: 35rem !important;
+  width: 95% !important;
+  max-width: 35rem !important;
   margin: 0 !important;
   padding: 0 !important;
   transform: translateX(-50%);
@@ -8,12 +9,17 @@
     background-color: $orange;
     background-image: url({{ 'modal-background-image.jpeg' | asset_url }});
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-position: center;
+    background-size: cover;
     padding: 1rem 2rem 0 2rem;
   }
   .bottom-one-third-ish {
     background-color: $alt-orange;
     padding: 0 2rem 2rem 2rem;
+  }
+  @media only screen and (max-width: 480px) {
+    left: 50% !important;
+    max-height: inherit !important;
   }
 }
 
@@ -77,9 +83,9 @@
 }
 
 div.klaviyo_form_actions.form-submit {
-  flex-basis: 15%;
+  flex-basis: 20%;
   margin: 0;
-  padding: 0;;
+  padding: 0;
   border: none;
 }
 
@@ -89,7 +95,7 @@ div.klaviyo_form_actions.form-submit {
   border-bottom-left-radius: 0;
   background-color: $orange;
   background-image: none;
-  padding: 0.75rem;
+  padding: 0.5rem;
   transition: background-color 0.3s;
   &:hover {
     background-color: lighten($alt-orange, 20%);

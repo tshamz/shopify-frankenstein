@@ -24,14 +24,23 @@
         @import 'helpers/config';
 
 
+    //  _     _
+    // (_|   |_/
+    //   |   | _        _|   _   ,_
+    //   |   ||/ /|/|  / |  / \_/  |
+    //    \_/ |_/ | |_/\/|_/\_/    |/
+    //
+        @import 'vendor/normalize';
+
+
     //  , _
     // /|/_) _,   ,   _
     //  |  \/ |  / \_|/
     //  |(_/\/|_/ \/ |_/
     //
-        @import 'vendor/normalize';
         @import 'base/base';
         @import 'base/containers';
+
 
     //   __
     //  / ()  _               _         _      _|_  ,
@@ -39,23 +48,25 @@
     //  \___/\_/  | | |_/|_/ \_/  | |_/|_/ | |_/|_/ \/
     //                  (|
     //
-        @import 'components/site-topbar';
-        @import 'components/site-navigation';
-        @import 'components/site-footer';
-        @import 'components/site-bottombar';
-        @import 'components/collection-grid';
-        @import 'components/collection-grid-item';
-        @import 'components/product';
-        @import 'components/contact';
         @import 'components/alert';
-        @import 'components/inline-cart';
         @import 'components/cart';
-        @import 'components/related-products';
-        @import 'components/overlay';
-        @import 'components/social-media-links';
+        @import 'components/collection-grid-item';
+        @import 'components/collection-grid';
+        @import 'components/collection';
+        @import 'components/contact';
         @import 'components/email-signup';
-        @import 'components/street-cred';
+        @import 'components/inline-cart';
         @import 'components/klaviyo-modal';
+        @import 'components/overlay';
+        @import 'components/product';
+        @import 'components/related-products';
+        @import 'components/site-bottombar';
+        @import 'components/site-footer';
+        @import 'components/site-navigation';
+        @import 'components/site-search';
+        @import 'components/site-topbar';
+        @import 'components/social-media-links';
+        @import 'components/street-cred';
 
 
     //   ()
@@ -65,10 +76,4 @@
     //
         @import 'sections/homepage';
         @import 'sections/faq';
-
-
-
-
-
-
 
