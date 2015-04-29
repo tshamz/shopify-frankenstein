@@ -1,6 +1,8 @@
 # Impulse (A.K.A. Shopify Frankenstein)
 
 Staging site can be found [here](http://bva-tyler3.myshopify.com/).
+
+
 Production site using old code can be found [here](http://sunstaches.com/).
 
 
