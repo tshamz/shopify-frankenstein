@@ -1,7 +1,7 @@
 .main-container {
   .collection-title-container {
     position: relative;
-    padding-left: 4rem;
+    padding-left: 2rem;
     @include breakpoint {
       padding-left: 1rem;
     }
@@ -46,6 +46,7 @@
     content: '';
     order: 1;
     height: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -53,5 +54,6 @@
   @extend .collection-grid-item;
   order: 1;
   height: 0;
+  margin-bottom: 0;
 }
 

@@ -20,10 +20,10 @@
   padding: 0 1rem;
   > * {
     &:first-child {
-      left: $gutter;
+      left: 2rem;
     }
     &:last-child {
-      right: $gutter;
+      right: 2rem;
     }
   }
   button {

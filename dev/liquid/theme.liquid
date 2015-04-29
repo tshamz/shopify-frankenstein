@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+
+  <title>Sunstaches</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <link rel="canonical" href="/" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="{{ product.title | strip_html | escape }}" />
+  <meta property="og:url" content="http://bva-tyler3.myshopify.com/products/{{ product.handle }}" />
+  <meta property="og:description" content="{{ product.description | strip_html }}" />
+  <meta property="og:image" content="http:{{ product.images[0] | img_url: 'large' }}" />
+  <meta property="og:price:amount" content="{{ product.price | money_without_currency }}" />
+  <meta property="og:price:currency" content="{{ shop.currency }}" />
+
+  {{ content_for_header }}
+
+  {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+
+  <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="overlay">
+    <div class="inline-cart-outer" id="inline-cart-overlay">
+
+    </div>
+    <div class="contact-form-outer" id="contact-form-overlay">
+      <div class="contact-form overlay-container" style="display:none;">
+        <h2 class="contact-heading">Contact Us</h2>
+        <div class="contact-close">+</div>
+        <form accept-charset="UTF-8" action="/contact" class="contact-form" method="post">
+          <input name="form_type" type="hidden" value="contact">
+          <input name="utf8" type="hidden" value="✓">
+          <div class="contact-name">
+           <label class="name-label">Name:</label>
+           <input class="name-input" type="text" placeholder="Name" name="contact[name]">
+          </div>
+          <div class="contact-email">
+           <label class="email-label">Email:</label>
+           <input class="email-input" type="email" placeholder="Email Address" name="contact[email]">
+          </div>
+          <div class="contact-message">
+           <label class="message-label">Your Message:</label>
+           <textarea class="message-input" placeholder="Enter Your Message" name="contact[message]"></textarea>
+          </div>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="alert-outer" id="alert-overlay">
+      <div class="alert overlay-container" style="display:none;">
+        <h2 class="alert-heading">Well this is embarrassing...</h2>
+        <div class="alert-close">+</div>
+        <div class="alert-message"></div>
+        <div class="alert-description"></div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-topbar">
+      <div class="site-topbar-inner">
+        <div class="aboutpage-link"><a class="navigation-link" href="/pages/about/">About</a></div>
+        <button class="contactform-link navigation-link">Contact Us</button>
+        <div class="faqpage-link navigation-link"><a class="navigation-link" href="/pages/faq/">FAQ</a></div>
+        <div class="retailerspage-link"><a class="navigation-link" href="/pages/retailers/">Retailers</a></div>
+        <div class="social-media-links">
+          <a class="twitter-icon" href="http://twitter.com/Sunstaches"><i class="fa fa-twitter"></i></a>
+          <a class="instagram-icon" href="http://instagram.com/Sunstaches"><i class="fa fa-instagram"></i></a>
+          <a class="facebook-icon" href="http://facebook.com/Sunstaches"><i class="fa fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="site-navigation">
+      <div class="site-navigation-inner">
+        <div class="navigation-hamburger">
+          <img src="{{ 'hamburger.png' | asset_url }}" />
+        </div>
+        <div class="navigation-logo">
+          <a class="navigation-link no-follow" href="/"><img src="{{ 'sunstachereallogo.png' | asset_url }}" /></a>
+        </div>
+        <div class="navigation-items">
+          {% for link in linklists.main-navigation.links %}
+            <div class="navigation-item" >
+              <a class="navigation-link" href="{{ link.url }}">{{ link.title }}</a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="inline-cart-toggle pull-right">
+          <i class="fa fa-shopping-cart cart-toggle"></i><span class="inline-cart-dynamic-counter"> Cart (<span data-dynamic-count></span>)</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-container content-loading" id="guts">
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="circle" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg>
+    {{ content_for_layout }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-item logo-container">
+        <a href="/"><img class="logo" src="{{ 'sunstachereallogo.png' | asset_url }}" /></a>
+      </div>
+      <div class="footer-item email-signup">
+        <h3>Enter to WIN Monthly Prizes</h3>
+        <form id="email_signup" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank">
+          <input type="hidden" name="g" value="ghnx6E">
+          <input type="email" value="" name="email" id="k_id_email" placeholder="Enter Your Email" />
+          <button type="submit" class="email-signup-submit"><i class="fa fa-envelope"></i></button>
+          <div class="klaviyo_messages">
+            <div class="success_message" style="display:none;"></div>
+            <div class="error_message" style="display:none;"></div>
+          </div>
+        </form>
+        <div class="social-media-links">
+          <a class="twitter-icon" href="http://twitter.com/Sunstaches"><i class="fa fa-twitter"></i></a>
+          <a class="instagram-icon" href="http://instagram.com/Sunstaches"><i class="fa fa-instagram"></i></a>
+          <a class="facebook-icon" href="http://facebook.com/Sunstaches"><i class="fa fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+{{ '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' | script_tag }}
+{{ '//unslider.com/unslider.min.js' | script_tag }}
+{{ '//fb.me/react-0.13.1.js' | script_tag }}
+{{ '//www.klaviyo.com/media/js/public/klaviyo_subscribe.js' | script_tag }}
+{{ 'instagramLite.js' | asset_url | script_tag }}
+{{ 'main.js' | asset_url | script_tag }}
+
+</body>
+</html>

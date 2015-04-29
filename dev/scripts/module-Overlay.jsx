@@ -15,25 +15,25 @@
   };
 
   // React Components
-  var AlertOverlay = React.createClass({displayName: "AlertOverlay",
+  var AlertOverlay = React.createClass({
     render: function() {
       var overlayStyle = {
         display: 'none'
       };
       return (
-        React.createElement("div", {className: "alert overlay-container", style: overlayStyle}, 
-          React.createElement("h2", {className: "alert-heading"}, 'Well this is embarrassing...'), 
-          React.createElement("div", {className: "alert-close"}, "+"), 
-          React.createElement("div", {className: "alert-message"}, this.props.data.message), 
-          React.createElement("div", {className: "alert-description"}, this.props.data.description)
-        )
+        <div className="alert overlay-container" style={overlayStyle}>
+          <h2 className="alert-heading">{'Well this is embarrassing...'}</h2>
+          <div className="alert-close">+</div>
+          <div className="alert-message">{this.props.data.message}</div>
+          <div className="alert-description">{this.props.data.description}</div>
+        </div>
       );
     }
   });
 
   var renderAlert = function(data) {
     React.render(
-      React.createElement(AlertOverlay, {data: data}),
+      <AlertOverlay data={data} />,
       document.getElementById('alert-overlay')
     );
   }

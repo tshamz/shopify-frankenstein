@@ -19,6 +19,7 @@
   </div>
   <div class="homepage-best-sellers" data-best-sellers-container>
     <h2 class="section-heading">Best Sellers</h2>
+    <div id="homepage-collection"></div>
   </div>
   <div class="homepage-social-staches">
     <h2 class="section-heading">Social Staches</h2>
@@ -30,13 +31,15 @@
         </ul>
       </div>
     </div>
-    <div class="shoutout-to-them-freshmen">
-      <h3 class="instagram-thing-heading section-subheading">Instagram @sunstaches</h3>
-      <div class="instagram-thing-main">
-        <img class="all-gold-everything" src="{{ 'all-gold-everything.png' | asset_url }}" alt="gold picture frame" />
-        <div class="main-image-entry-point"></div>
+    <div class="shoutout-to-them-freshmen" id="instagram-widget">
+      <div>
+        <h3 class="instagram-thing-heading section-subheading">Instagram @sunstaches</h3>
+        <div class="instagram-thing-main">
+          <img class="all-gold-everything" src="{{ 'all-gold-everything.png' | asset_url }}" alt="gold picture frame" />
+          <div class="main-image-entry-point"></div>
+        </div>
+        <div class="instagram-thing-thumbnails"></div>
       </div>
-      <div class="instagram-thing-thumbnails"></div>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 {% paginate collection.products by 9001 %}
 {% for product in collection.products %}{
   "available": {{ product.available }},
-  "body_html": "",
+  "body_html":"{{ product.description | url_escape }}",
   "collections": [{% for collection in product.collections %}"{{ collection.handle }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
   "compare_at_price_max": {{ product.compare_at_price_max }},
   "compare_at_price_min": {{ product.compare_at_price_min }},

@@ -1,13 +1,6 @@
 (function(Social, $, undefined) {
 
-  (function(d){
-    var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
-    p.type = 'text/javascript';
-    p.async = true;
-    p.src = '//assets.pinterest.com/js/pinit.js';
-    f.parentNode.insertBefore(p, f);
-  }(document));
-
+  // Private
   var bindUIActions = function() {
     $(document).on('click', '.social-sharing-icon', function() {
       switch($(this).data('network')) {
@@ -25,31 +18,20 @@
           break;
       }
     });
-    $(document).on('click', '.instagram-thing-thumbnails a', function() {
-      $('.main-image-entry-point').empty().append($(this).clone());;
-      return false;
-    });
   };
 
-  Social.instagramFeed = function() {
-    $('.instagram-thing-thumbnails').instagramLite({
-      clientID:"dc653a3c87cd441b97af3b9b279ed565",
-      username:"sunstaches",
-      list:false,
-      videos:false,
-      urls:true,
-      limit:4,
-      success: function() {
-        $('.instagram-thing-thumbnails').children().first().clone().appendTo('.main-image-entry-point');
-        while ($('.instagram-thing-thumbnails a').length < 4) {
-          $('.instagram-thing-thumbnails a').first().clone().prependTo('.instagram-thing-thumbnails');
-        }
-      }
-    });
-  };
-
+  // Public / Init
   Social.init = function() {
     bindUIActions();
+
+    (function(d){
+      var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+      p.type = 'text/javascript';
+      p.async = true;
+      p.src = '//assets.pinterest.com/js/pinit.js';
+      f.parentNode.insertBefore(p, f);
+    }(document));
   };
 
 }(window.Social = window.Social || {}, jQuery));
+

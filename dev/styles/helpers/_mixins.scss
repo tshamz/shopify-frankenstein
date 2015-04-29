@@ -72,20 +72,6 @@
   }
 }
 
-@mixin max-width-containers($max-width, $gutter, $mobile-gutter, $selectors) {
-  #{$selectors} {
-    max-width: $max-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: $gutter;
-    padding-right: $gutter;
-    @include breakpoint {
-      padding-left: $mobile-gutter;
-      padding-right: $mobile-gutter;
-    }
-  }
-}
-
 @keyframes swinging-header {
   0% { transform: perspective(15rem) rotate3d(1, 0, 0, -80deg) translateY(49px); }
   20% { transform: perspective(25rem) rotate3d(1, 0, 0, 60deg) translateY(49px); }
@@ -94,4 +80,18 @@
   80% { transform: perspective(25rem) rotate3d(1, 0, 0, -10deg) translateY(49px); }
   100% { transform: perspective(25rem) rotate3d(1, 0, 0, 0) translateY(49px); }
 }
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes turn {
+  0% { stroke-dashoffset: 187; }
+  50% { stroke-dashoffset: 46.75; transform: rotate(135deg); }
+  100% { stroke-dashoffset: 187; transform: rotate(450deg); }
+}
+
+
+
 

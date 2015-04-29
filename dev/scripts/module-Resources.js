@@ -1,10 +1,11 @@
 (function(Resources, $, undefined) {
 
-// Private
+  // Private
   var collections = {};
   var products = [];
   var productIdMap = [];
   var productHandleMap = [];
+  var instagramMedia = [];
 
   var initializeProductImages = function(isCached) {
     $.each(products, function(index, product) {
@@ -22,13 +23,17 @@
   var getResources = function() {
     var $getCollections = $.get('/collections?view=endpoint', function(response) {
       collections = JSON.parse(response);
-      console.log(collections);
+      // console.log(collections);
     });
 
     var $getProducts = $.get('/collections/all?view=endpoint', function(response) {
       products = JSON.parse(response).products;
-      console.log(products);
+      // console.log(products);
     });
+
+    var $getInstagramMedia = $.get('https://api.instagram.com/v1/users/1179155947/media/recent/?client_id=dc653a3c87cd441b97af3b9b279ed565&count=10&callback=?', function(response) {
+      instagramMedia = response.data;
+    }, 'jsonp');
 
     $getProducts.done(function() {
       initializeProductImages(true);
@@ -40,7 +45,7 @@
       });
     });
 
-    $.when($getCollections, $getProducts)
+    $.when($getCollections, $getProducts, $getInstagramMedia)
       .done(function() {
         $(document).trigger('stateChange.resources', [{loadState: 'loaded'}]);
       })
@@ -49,15 +54,23 @@
       });
   };
 
-  Resources.buildCollection = function(collectionHandle) {
-    var builtCollection = [];
-    $.each(collections[collectionHandle].products, function(index, id) {
-      builtCollection.push(products[productIdMap.indexOf(id)]);
+
+  // Public / Init
+  Resources.retrieveInstagramMedia = function(type, total) {
+    var instagramResults = [];
+    var mediaType = type === 'mixed' ? 'image' || 'video' : type;
+    $.each(instagramMedia, function(index, item) {
+      if (item.type === mediaType) {
+        instagramResults.push(item);
+      }
+      if (instagramResults.length === total) {
+        return false;
+      }
     });
-    return builtCollection;
+    return instagramResults;
   };
 
-  Resources.getProduct = function(handle) {
+  Resources.retrieveProduct = function(handle) {
     return products[productHandleMap.indexOf(handle)];
   };
 
@@ -68,14 +81,44 @@
         relatedProducts.push(products[Math.floor(Math.random() * products.length)]);
       }
     } else {
+      var selectedCollection;
+      var relatedCollections = product.collections.sort(function() {return 0.5 - Math.random();});
+      $.each(relatedCollections, function(index, collection) {
+        if (relatedCollections === 'all' || relatedCollections.length < total) {
+          return;
+        } else {
+          selectedCollection = collection;
+          return false;
+        }
+      });
+      if (typeof(selectedCollection) === 'undefined') {
+        selectedCollection = 'all';
+      }
+      var collectionProducts = collections[selectedCollection].products;
       while (relatedProducts.length < total) {
-        var relatedCollections = product.collections.slice(1);  // make sure collection "all" always first
-        var randomCollection = relatedCollections[Math.floor(Math.random() * relatedCollections.length)];
-        var collectionProducts = collections[randomCollection].products;
-        relatedProducts.push(products[productIdMap.indexOf(collectionProducts[Math.floor(Math.random() * collectionProducts.length)])]);
+        var randomIndex = Math.floor(Math.random() * collectionProducts.length);
+        var randomProduct = products[productIdMap.indexOf(collectionProducts[randomIndex])];
+        var match = true;
+        $.each(relatedProducts, function(index, product) {
+          if (randomProduct.id === product.id) {
+            match = false;
+            return false;
+          }
+        });
+        if (match) {
+          relatedProducts.push(randomProduct);
+        }
       }
     }
     return relatedProducts;
+  };
+
+  Resources.buildCollection = function(collectionHandle) {
+    var builtCollection = [];
+    $.each(collections[collectionHandle].products, function(index, id) {
+      builtCollection.push(products[productIdMap.indexOf(id)]);
+    });
+    return builtCollection;
   };
 
   Resources.init = function() {

@@ -26,12 +26,6 @@ $navigationbar-height:   $size-7;
 $footer-height:          auto;
 $bottombar-height:       $size-6;
 
-$max-width-container-size: 60rem;
-$gutter: 2rem;
-$mobile-gutter: 1rem;
-$max-width-container-selectors: '.site-topbar-inner, .site-navigation-inner, .product-grid-container, .product-container, .homepage-container, .site-footer-inner, .template-container, .cart-container, .collection-title-container';
-
-
 // TOPBAR
 // ------------------------
 //
@@ -51,8 +45,3 @@ $max-width-container-selectors: '.site-topbar-inner, .site-navigation-inner, .pr
 // ------------------------
 //
 @include component-layout('.site-bottombar-inner', $bottombar-height, 'centered', 0.5rem);
-
-// MAX-WIDTH CONTAINERS
-// ------------------------
-//
-@include max-width-containers($max-width-container-size, $gutter, $mobile-gutter, $max-width-container-selectors);

@@ -1,6 +1,24 @@
 (function(Cart, $, undefined) {
 
   // Private
+  var bindUIActions = function() {
+    $('.inline-cart-toggle').on('click', function() {
+      renderCart();
+    });
+    $(document).on('click', '.inline-cart-continue-shopping, .inline-cart-item a', function() {
+      Overlay.hideOverlay();
+    });
+    $(document).on('click', '.add-to-cart-button', function() {
+      updateCart('add', parseInt($('.add-to-cart-quantity').val(), 10), $('.product-variant-select-box').val());
+    });
+    $(document).on('click', '.inline-add-to-cart-button', function() {
+      updateCart('add', 1, $(this).attr('data-variant-id'));
+    });
+    $(document).on('click', '.inline-cart-item-remove i', function() {
+      updateCart('change', 0, $(this).closest('.inline-cart-item').attr('data-variant-id'));
+    });
+  };
+
   var renderCart = function() {
     $.getJSON('/cart.js', function(response) {
       React.render(
@@ -18,24 +36,6 @@
     }, 'json')
     .fail(function(jqXHR) {
       Overlay.showOverlay('.alert', {message: 'out of stock.', description: 'no more left.'});
-    });
-  };
-
-  var bindUIActions = function() {
-    $('.inline-cart-toggle').on('click', function() {
-      renderCart();
-    });
-    $(document).on('click', '.inline-cart-continue-shopping, .inline-cart-item a', function() {
-      Overlay.hideOverlay();
-    });
-    $(document).on('click', '.add-to-cart-button', function() {
-      updateCart('add', parseInt($('.add-to-cart-quantity').val(), 10), $(this).attr('data-variant-id'));
-    });
-    $(document).on('click', '.inline-add-to-cart-button', function() {
-      updateCart('add', 1, $(this).attr('data-variant-id'));
-    });
-    $(document).on('click', '.inline-cart-item-remove i', function() {
-      updateCart('change', 0, $(this).closest('.inline-cart-item').attr('data-variant-id'));
     });
   };
 

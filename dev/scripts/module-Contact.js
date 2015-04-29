@@ -1,5 +1,6 @@
 (function(Contact, $, undefined) {
 
+  // Private
   var bindUIActions = function() {
     $('form.contact-form').submit(function(){
       Overlay.hideOverlay();
@@ -13,6 +14,7 @@
     });
   };
 
+  // Public / Init
   Contact.init = function() {
     bindUIActions();
   };

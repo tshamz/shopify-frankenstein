@@ -1,7 +1,8 @@
-<div class="product-container template-container" data-product-container>
+<!-- This template is for robots only. The page that end-users see is a ReactJS component that's rendered in the JavaScript -->
+<div class="product-container">
   <div class="product-images">
-    <div class="image-main" data-image-main><img src="{{ product.images[0].src | img_url: 'large' }}" alt="{{ product.images[0].alt }}" /></div>
-    <div class="image-thumbnails" data-image-thumbnails>{% if product.images.length > 1 %}{% for image in product.images %}<div class="thumbnail"><img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}" /></div>{% endfor %}{% endif %}</div>
+    <div class="image-main"><img src="{{ product.images[0].src | img_url: 'large' }}" alt="{{ product.images[0].alt }}" /></div>
+    <div class="image-thumbnails">{% if product.images.length > 1 %}{% for image in product.images %}<div class="thumbnail"><img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}" /></div>{% endfor %}{% endif %}</div>
     <div class="product-social-sharing">
       <div class="social-sharing-prompt">Share This Stache:</div>
       <div class="social-sharing-icon facebook" data-network="facebook"><i class="fa fa-facebook"></i></div>
@@ -10,13 +11,13 @@
     </div>
   </div>
   <div class="product-information">
-    <h1 class="product-title" data-product-title>{{ product.title }}</h1>
-    <div class="product-description" data-product-description>{{ product.description }}</div>
+    <h1 class="product-title">{{ product.title }}</h1>
+    <div class="product-description">{{ product.description }}</div>
     <div class="product-price">
-      <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="" data-product-price>{{ product.price | money_without_currency }}</span>
+      <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="">{{ product.price | money_without_currency }}</span>
     </div>
     <div class="product-add-to-cart">
-      <div class="variants-select"><label>Color: </label><select data-variants-select></select></div>
+      <div class="variants-select"><label>Color: </label><select></select></div>
       <div class="product-quantity-and-button">
         <label>Qty: </label><input class="add-to-cart-quantity" type="number" value="1" />
         <button class="add-to-cart-button" data-variant-id="">Add To Cart</button>
@@ -24,20 +25,20 @@
     </div>
   </div>
 </div>
-<div style="opacity: 0;" class="related-products-container template-container" data-related-products-container>
+<div class="related-products-container">
   <h3 class="related-products-heading">Can't find the perfect 'stache? Keep looking below!</h3>
-  <div class="related-products" data-related-products>
+  <div class="related-products">
     {% assign handle = product.handle %}
     {% assign counter = '' %}
       {% for product in collections['all'].all_products %}
         {% if counter.size < 4 and handle != product.handle %}
           <div class="collection-grid-item" itemscope itemtype="http://schema.org/Product">
             <button class="inline-add-to-cart-button fa fa-shopping-cart" data-variant-id=""><span class="symbol">+</span></button>
-            <a href="{{ product.url | within: collection }}" data-product-link><img class="item-image" src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image" data-product-image></a>
+            <a href="{{ product.url | within: collection }}"><img class="item-image" src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image"></a>
             <div class="item-price" itemscope itemtype="http://schema.org/Offer" itemprop="offers" >
-              <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="" data-product-price>{{ product.price | money_without_currency }}</span>
+              <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="">{{ product.price | money_without_currency }}</span>
             </div>
-            <div class="item-title" itemprop="name" data-product-title>{{ product.title }}</div>
+            <div class="item-title" itemprop="name">{{ product.title }}</div>
           </div>
         {% capture temp %}{{ counter }}*{% endcapture %}
         {% assign counter = temp %}

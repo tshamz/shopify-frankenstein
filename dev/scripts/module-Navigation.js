@@ -1,6 +1,23 @@
 (function(Navigation, $, undefined) {
 
-// Private
+  // Private
+  var bindUIActions = function() {
+    $('.navigation-hamburger, .navigation-link').on('click', function() {
+      if ($('.navigation-hamburger').is(':visible')) {
+        $('.site-topbar, .navigation-items').toggleClass('is-active');
+      }
+    });
+
+    $(document).on('click', 'a:not([href^="http"]):not(.pure-follow)', function() {
+      window.scrollTo(0, 0);
+      var freshState = parsePath($(this).attr('href'));
+      history.pushState(freshState, '', $(this).attr('href'));
+      updateNavigationCues(freshState);
+      router(freshState.template, freshState.state);
+      return false;
+    });
+  };
+
   var parsePath = function(path) {
     var parsedPath = {
       template: path.split('/')[1],
@@ -19,9 +36,9 @@
     var title = freshState.template === 'homepage' ? 'Sunstaches' : prettyPrint(freshState.template)+ ' - ' +prettyPrint(freshState.state);
     $('title').html(title);
     $('.navigation-item').removeClass('is-active').filter('[data-collection-handle="'+ freshState.state +'"]').addClass('is-active');
+    $('body').removeClass().addClass(freshState.template);
   };
 
-  // React methods
   var router = function(template, state) {
     switch(template) {
       case 'collections':
@@ -37,6 +54,7 @@
         .done(function() {  // second callback
           $('.unslider').unslider();
           Collections.renderHomepageCollections();
+          Instagram.renderInstagramWidget();
         });
         break;
       case 'pages':
@@ -46,19 +64,12 @@
     }
   };
 
-  var bindUIActions = function() {
-    $('.navigation-hamburger, .navigation-link').on('click', function() {
-      if ($('.navigation-hamburger').is(':visible')) {
-        $('.site-topbar, .navigation-items').toggleClass('is-active');
-      }
-    });
-  };
-
-// Non-UI Event Bindings
+  // Non-UI Event Bindings
   $(document).on('stateChange.resources', function(event, resourceLoadState) {
     var initialState = parsePath(window.location.pathname);
-    updateNavigationCues(initialState);
     router(initialState.template, initialState.state);
+    updateNavigationCues(initialState);
+    $('main').removeClass('content-loading');
   });
 
   $(window).on('popstate', function() {
@@ -66,16 +77,7 @@
     router(history.state.template, history.state.state);
   });
 
-  $(document).on('click', 'a:not([href^="http"])', function() {
-    window.scrollTo(0, 0);
-    var freshState = parsePath($(this).attr('href'));
-    history.pushState(freshState, '', $(this).attr('href'));
-    updateNavigationCues(freshState);
-    router(freshState.template, freshState.state);
-    return false;
-  });
-
-// Public
+  // Public / Init
   Navigation.init = function() {
     bindUIActions();
   };

@@ -1,5 +1,34 @@
 (function(Collections, $, undefined) {
 
+  // React Components
+  var CollectionGrid = React.createClass({
+    render: function() {
+      var gridItems = [];
+      this.props.data.forEach(function(item, index) {
+        gridItems.push(<Collections.CollectionGridItem item={item} key={index} />);
+      }.bind(this));
+      return (
+        <div className="collection-grid-container">
+          {gridItems}
+          <div className="grid-spacer"></div>
+        </div>
+      );
+    }
+  });
+
+  var CollectionsContainer = React.createClass({
+    render: function() {
+      return (
+        <div className="collection-container">
+          <div className="collection-title-container">
+            <h1 className="collection-grid-title">{this.props.title}</h1>
+          </div>
+          <CollectionGrid data={this.props.data} />
+        </div>
+      );
+    }
+  });
+
   Collections.CollectionGridItem = React.createClass({
     render: function() {
       return (
@@ -18,31 +47,7 @@
     }
   });
 
-  var CollectionGrid = React.createClass({
-    render: function() {
-      var gridItems = [];
-      this.props.data.forEach(function(item, index) {
-        gridItems.push(<Collections.CollectionGridItem item={item} key={index} />);
-      }.bind(this));
-      return (
-        <div className="collection-grid-container template-container">{gridItems}</div>
-      );
-    }
-  });
-
-  var CollectionsContainer = React.createClass({
-    render: function() {
-      return (
-        <div className="collection-container">
-          <div className="collection-title-container">
-            <h1 className="collection-grid-title">{this.props.title}</h1>
-          </div>
-          <CollectionGrid data={this.props.data} />
-        </div>
-      );
-    }
-  });
-
+  // Public / Init
   Collections.renderCollections = function(handle, title) {
     React.render(
       <CollectionsContainer title={title} data={Resources.buildCollection(handle)} />,

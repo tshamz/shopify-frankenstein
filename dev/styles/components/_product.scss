@@ -137,7 +137,6 @@
 .product-variants-select {
   position: relative;
   flex-basis: 100%;
-  display: none;
   border-top: 2px solid $alt-pure-white;
   select {
     outline: 0;
@@ -148,6 +147,10 @@
     width: calc(100% - 5.3rem);
     -webkit-appearance: none;
     -moz-appearance: none;
+
+  }
+  &.hidden {
+    display: none;
   }
   &::after {
     content: '';
@@ -159,6 +162,10 @@
     background-repeat: no-repeat;
     background-image: url(data:image/gif;base64,R0lGODlhCQAOAIABAAAAAO3u7SH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDMkYyRUFGRTFFOEQxMUUwODEzM0ZBN0M2QkJEOEY0QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDMkYyRUFGRjFFOEQxMUUwODEzM0ZBN0M2QkJEOEY0QSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkFBQkVDQTU3MUU4QzExRTA4MTMzRkE3QzZCQkQ4RjRBIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFBQkVDQTU4MUU4QzExRTA4MTMzRkE3QzZCQkQ4RjRBIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAkADgAAAheMA6fAitwMnG9Ch7Pe1SafSNQSOaFRAAA7);
   }
+}
+
+.product-variant-select-box.hidden {
+  display: none;
 }
 
 .product-add-to-cart {

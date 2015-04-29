@@ -1,5 +1,34 @@
 (function(Collections, $, undefined) {
 
+  // React Components
+  var CollectionGrid = React.createClass({displayName: "CollectionGrid",
+    render: function() {
+      var gridItems = [];
+      this.props.data.forEach(function(item, index) {
+        gridItems.push(React.createElement(Collections.CollectionGridItem, {item: item, key: index}));
+      }.bind(this));
+      return (
+        React.createElement("div", {className: "collection-grid-container"}, 
+          gridItems, 
+          React.createElement("div", {className: "grid-spacer"})
+        )
+      );
+    }
+  });
+
+  var CollectionsContainer = React.createClass({displayName: "CollectionsContainer",
+    render: function() {
+      return (
+        React.createElement("div", {className: "collection-container"}, 
+          React.createElement("div", {className: "collection-title-container"}, 
+            React.createElement("h1", {className: "collection-grid-title"}, this.props.title)
+          ), 
+          React.createElement(CollectionGrid, {data: this.props.data})
+        )
+      );
+    }
+  });
+
   Collections.CollectionGridItem = React.createClass({displayName: "CollectionGridItem",
     render: function() {
       return (
@@ -18,31 +47,7 @@
     }
   });
 
-  var CollectionGrid = React.createClass({displayName: "CollectionGrid",
-    render: function() {
-      var gridItems = [];
-      this.props.data.forEach(function(item, index) {
-        gridItems.push(React.createElement(Collections.CollectionGridItem, {item: item, key: index}));
-      }.bind(this));
-      return (
-        React.createElement("div", {className: "collection-grid-container template-container"}, gridItems)
-      );
-    }
-  });
-
-  var CollectionsContainer = React.createClass({displayName: "CollectionsContainer",
-    render: function() {
-      return (
-        React.createElement("div", {className: "collection-container"}, 
-          React.createElement("div", {className: "collection-title-container"}, 
-            React.createElement("h1", {className: "collection-grid-title"}, this.props.title)
-          ), 
-          React.createElement(CollectionGrid, {data: this.props.data})
-        )
-      );
-    }
-  });
-
+  // Public / Init
   Collections.renderCollections = function(handle, title) {
     React.render(
       React.createElement(CollectionsContainer, {title: title, data: Resources.buildCollection(handle)}),
