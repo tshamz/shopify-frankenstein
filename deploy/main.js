@@ -94,17 +94,17 @@
   var InlineCartItem = React.createClass({displayName: "InlineCartItem",
     render: function() {
       return (
-        React.createElement("div", {className: "inline-cart-item", "data-variant-id": this.props.item.variant_id}, 
-          React.createElement("div", {className: "inline-cart-item-image"}, 
-            React.createElement("a", {href: "/products/" + this.props.item.handle, title: this.props.item.title}, 
+        React.createElement("div", {className: "inline-cart-item", "data-variant-id": this.props.item.variant_id},
+          React.createElement("div", {className: "inline-cart-item-image"},
+            React.createElement("a", {href: "/products/" + this.props.item.handle, title: this.props.item.title},
               React.createElement("img", {src: this.props.item.image, alt: this.props.item.title})
             )
-          ), 
-          React.createElement("div", {className: "inline-cart-item-information"}, 
-            React.createElement("span", {className: "inline-cart-item-price"}, this.props.item.quantity, " x "), 
-            React.createElement("a", {href: "/products/" + this.props.item.handle, title: this.props.item.title, className: "inline-cart-item-title"}, this.props.item.title), 
+          ),
+          React.createElement("div", {className: "inline-cart-item-information"},
+            React.createElement("span", {className: "inline-cart-item-price"}, this.props.item.quantity, " x "),
+            React.createElement("a", {href: "/products/" + this.props.item.handle, title: this.props.item.title, className: "inline-cart-item-title"}, this.props.item.title),
             React.createElement("div", {className: "inline-cart-item-price"}, "$", this.props.item.line_price/100)
-          ), 
+          ),
           React.createElement("div", {className: "inline-cart-item-remove"}, React.createElement("i", {className: "fa fa-trash-o"}))
         )
       );
@@ -126,8 +126,8 @@
   var InlineCartSubtotal = React.createClass({displayName: "InlineCartSubtotal",
     render: function() {
       return (
-        React.createElement("div", {className: "inline-cart-totals"}, 
-          React.createElement("div", null, "Subtotal"), 
+        React.createElement("div", {className: "inline-cart-totals"},
+          React.createElement("div", null, "Subtotal"),
           React.createElement("div", {className: "inline-cart-subtotal-amount"}, "$", this.props.data.total_price/100)
         )
       );
@@ -137,15 +137,15 @@
   var InlineCartOverlayContainer = React.createClass({displayName: "InlineCartOverlayContainer",
     render: function() {
       return (
-        React.createElement("div", {className: "inline-cart overlay-container", style: {display: 'none'}}, 
-          React.createElement("div", {className: "inline-cart-heading"}, 
-            React.createElement("div", {className: "inline-cart-title"}, "Your Cart"), 
+        React.createElement("div", {className: "inline-cart overlay-container", style: {display: 'none'}},
+          React.createElement("div", {className: "inline-cart-heading"},
+            React.createElement("div", {className: "inline-cart-title"}, "Your Cart"),
             React.createElement("div", {className: "inline-cart-close"}, "+")
-          ), 
-          React.createElement(InlineCartItems, {data: this.props.data}), 
-          React.createElement(InlineCartSubtotal, {data: this.props.data}), 
-          React.createElement("div", {className: "inline-cart-actions"}, 
-            React.createElement("a", {href: "http://sunstaches.myshopify.com/cart", className: "inline-cart-view-cart"}, "View Your Cart"), 
+          ),
+          React.createElement(InlineCartItems, {data: this.props.data}),
+          React.createElement(InlineCartSubtotal, {data: this.props.data}),
+          React.createElement("div", {className: "inline-cart-actions"},
+            React.createElement("a", {href: "http://sunstaches.myshopify.com/cart", className: "inline-cart-view-cart"}, "View Your Cart"),
             React.createElement("button", {className: "inline-cart-continue-shopping", href: "#"}, "Continue Shopping")
           )
         )
@@ -171,8 +171,8 @@
         gridItems.push(React.createElement(Collections.CollectionGridItem, {item: item, key: index}));
       }.bind(this));
       return (
-        React.createElement("div", {className: "collection-grid-container"}, 
-          gridItems, 
+        React.createElement("div", {className: "collection-grid-container"},
+          gridItems,
           React.createElement("div", {className: "grid-spacer"})
         )
       );
@@ -182,10 +182,10 @@
   var CollectionsContainer = React.createClass({displayName: "CollectionsContainer",
     render: function() {
       return (
-        React.createElement("div", {className: "collection-container"}, 
-          React.createElement("div", {className: "collection-title-container"}, 
+        React.createElement("div", {className: "collection-container"},
+          React.createElement("div", {className: "collection-title-container"},
             React.createElement("h1", {className: "collection-grid-title"}, this.props.title)
-          ), 
+          ),
           React.createElement(CollectionGrid, {data: this.props.data})
         )
       );
@@ -195,15 +195,15 @@
   Collections.CollectionGridItem = React.createClass({displayName: "CollectionGridItem",
     render: function() {
       return (
-        React.createElement("div", {className: "collection-grid-item", itemscope: "", itemtype: "http://schema.org/Product"}, 
-          React.createElement("button", {className: "inline-add-to-cart-button fa fa-shopping-cart", "data-variant-id": this.props.item.variants[0].id}, 
+        React.createElement("div", {className: "collection-grid-item", itemscope: "", itemtype: "http://schema.org/Product"},
+          React.createElement("button", {className: "inline-add-to-cart-button fa fa-shopping-cart", "data-variant-id": this.props.item.variants[0].id},
             React.createElement("span", {className: "symbol"}, "+")
-          ), 
-          React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("img", {className: "item-image", src: this.props.item.images[0].src, itemprop: "image"})), 
-          React.createElement("div", {className: "item-price", itemscope: "", itemtype: "http://schema.org/Offer", itemprop: "offers"}, 
-            React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"), 
+          ),
+          React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("img", {className: "item-image", src: this.props.item.images[0].src, itemprop: "image"})),
+          React.createElement("div", {className: "item-price", itemscope: "", itemtype: "http://schema.org/Offer", itemprop: "offers"},
+            React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"),
             React.createElement("span", {itemprop: "price", content: this.props.item.variants[0].price/100}, this.props.item.variants[0].price/100)
-          ), 
+          ),
           React.createElement("a", {href: "/products/" + this.props.item.handle}, React.createElement("div", {className: "item-title", itemprop: "name"}, this.props.item.title))
         )
       );
@@ -280,8 +280,8 @@
   var InstagramWidgetMain = React.createClass({displayName: "InstagramWidgetMain",
     render: function() {
       return (
-        React.createElement("div", {className: "main-image-entry-point"}, 
-          React.createElement("a", {href: this.props.link, target: "_blank"}, 
+        React.createElement("div", {className: "main-image-entry-point"},
+          React.createElement("a", {href: this.props.link, target: "_blank"},
             React.createElement("img", {src: this.props.src, alt: "Instagram Image"})
           )
         )
@@ -304,12 +304,12 @@
     },
     render: function() {
       return (
-        React.createElement("div", null, 
-          React.createElement("h3", {className: "instagram-thing-heading section-subheading"}, "Instagram @sunstaches"), 
-          React.createElement("div", {className: "instagram-thing-main"}, 
-            React.createElement("img", {className: "all-gold-everything", src: "{{ 'all-gold-everything.png' | asset_url }}", alt: "gold picture frame"}), 
+        React.createElement("div", null,
+          React.createElement("h3", {className: "instagram-thing-heading section-subheading"}, "Instagram @sunstaches"),
+          React.createElement("div", {className: "instagram-thing-main"},
+            React.createElement("img", {className: "all-gold-everything", src: "{{ 'all-gold-everything.png' | asset_url }}", alt: "gold picture frame"}),
             React.createElement(InstagramWidgetMain, {link: this.state.link, src: this.state.image})
-          ), 
+          ),
           React.createElement(InstagramWidgetThumbnails, {data: this.props.data, onUpdate: this.onUpdate})
         )
       );
@@ -436,10 +436,10 @@
         display: 'none'
       };
       return (
-        React.createElement("div", {className: "alert overlay-container", style: overlayStyle}, 
-          React.createElement("h2", {className: "alert-heading"}, 'Well this is embarrassing...'), 
-          React.createElement("div", {className: "alert-close"}, "+"), 
-          React.createElement("div", {className: "alert-message"}, this.props.data.message), 
+        React.createElement("div", {className: "alert overlay-container", style: overlayStyle},
+          React.createElement("h2", {className: "alert-heading"}, 'Well this is embarrassing...'),
+          React.createElement("div", {className: "alert-close"}, "+"),
+          React.createElement("div", {className: "alert-message"}, this.props.data.message),
           React.createElement("div", {className: "alert-description"}, this.props.data.description)
         )
       );
@@ -520,8 +520,8 @@
         variants.push(React.createElement(ProductVariant, {key: index, id: variant.id, inStock: variant.available, name: variant.title}));
       }.bind(this))
       return (
-        React.createElement("div", {className: variants.length > 1 ? "product-variants-select" : "product-variants-select hidden"}, 
-          React.createElement("label", {className: "product-variants-select-label"}, "Color:"), 
+        React.createElement("div", {className: variants.length > 1 ? "product-variants-select" : "product-variants-select hidden"},
+          React.createElement("label", {className: "product-variants-select-label"}, "Color:"),
           React.createElement("select", {className: this.props.visible === true ? "product-variant-select-box" : "product-variant-select-box hidden", onChange: this.handleChange, defaultValue: this.props.product.variants[0].id}, variants)
         )
       );
@@ -546,18 +546,18 @@
     },
     render: function() {
       return (
-        React.createElement("div", {className: "product-options"}, 
-          React.createElement("div", {className: "product-price"}, 
-            React.createElement("span", {className: "product-price-label"}, "Price:"), 
-            React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"), 
+        React.createElement("div", {className: "product-options"},
+          React.createElement("div", {className: "product-price"},
+            React.createElement("span", {className: "product-price-label"}, "Price:"),
+            React.createElement("span", {itemprop: "priceCurrency", content: "USD"}, "$"),
             React.createElement("span", {itemprop: "price", content: this.props.price/100}, this.props.price/100)
-          ), 
-          React.createElement("div", {className: "product-quantity"}, 
-            React.createElement("label", {className: "product-quantity-label"}, "Qty:"), 
-            React.createElement("input", {className: "add-to-cart-quantity", type: "number", defaultValue: "1", onChange: this.handleQuantityChange}), 
-            React.createElement("span", {className: "incrementor", "data-amount": "1"}, "+"), 
+          ),
+          React.createElement("div", {className: "product-quantity"},
+            React.createElement("label", {className: "product-quantity-label"}, "Qty:"),
+            React.createElement("input", {className: "add-to-cart-quantity", type: "number", defaultValue: "1", onChange: this.handleQuantityChange}),
+            React.createElement("span", {className: "incrementor", "data-amount": "1"}, "+"),
             React.createElement("span", {className: "decrementer", "data-amount": "-1"}, "-")
-          ), 
+          ),
           React.createElement(ProductVariants, {onUpdate: this.props.onUpdate, product: this.props.product, visible: this.props.product.variants.length > 1 ? true : false})
 
         )
@@ -568,15 +568,15 @@
   var ProductSocialSharing = React.createClass({displayName: "ProductSocialSharing",
     render: function() {
       return (
-        React.createElement("div", {className: "product-social-sharing"}, 
-          React.createElement("div", {className: "social-sharing-prompt"}, "Share This Stache:"), 
-          React.createElement("div", {className: "social-sharing-icon facebook", "data-network": "facebook"}, 
+        React.createElement("div", {className: "product-social-sharing"},
+          React.createElement("div", {className: "social-sharing-prompt"}, "Share This Stache:"),
+          React.createElement("div", {className: "social-sharing-icon facebook", "data-network": "facebook"},
             React.createElement("i", {className: "fa fa-facebook"})
-          ), 
-          React.createElement("div", {className: "social-sharing-icon twitter", "data-network": "twitter"}, 
+          ),
+          React.createElement("div", {className: "social-sharing-icon twitter", "data-network": "twitter"},
             React.createElement("i", {className: "fa fa-twitter"})
-          ), 
-          React.createElement("div", {className: "social-sharing-icon pinterest", "data-network": "pinterest"}, 
+          ),
+          React.createElement("div", {className: "social-sharing-icon pinterest", "data-network": "pinterest"},
             React.createElement("i", {className: "fa fa-pinterest"})
           )
         )
@@ -592,7 +592,7 @@
     },
     render: function() {
       return (
-        React.createElement("div", {onClick: this.handleClick, className: this.props.first ? 'image-thumbnail is-active' : 'image-thumbnail', "data-variant-id": this.props.variantId}, 
+        React.createElement("div", {onClick: this.handleClick, className: this.props.first ? 'image-thumbnail is-active' : 'image-thumbnail', "data-variant-id": this.props.variantId},
           React.createElement("img", {src: this.props.image.src})
         )
       );
@@ -659,20 +659,20 @@
     },
     render: function() {
       return (
-        React.createElement("div", {className: "product-container"}, 
-          React.createElement("div", {className: "product-images"}, 
-            React.createElement("div", {className: "image-main"}, 
+        React.createElement("div", {className: "product-container"},
+          React.createElement("div", {className: "product-images"},
+            React.createElement("div", {className: "image-main"},
               React.createElement("img", {src: this.state.image})
-            ), 
-            React.createElement(ProductImageThumbnails, {product: this.props.product, price: this.state.price, onUpdate: this.onUpdate}), 
+            ),
+            React.createElement(ProductImageThumbnails, {product: this.props.product, price: this.state.price, onUpdate: this.onUpdate}),
             React.createElement(ProductSocialSharing, null)
-          ), 
-          React.createElement("div", {className: "product-information"}, 
-            React.createElement("h1", {className: "product-title"}, this.props.product.title), 
-            React.createElement("div", {className: "product-description", dangerouslySetInnerHTML: {__html: decodeURI(this.props.product.body_html)}}), 
-            React.createElement("div", {className: "product-sku"}, "SKU: ", React.createElement("span", null, this.state.sku)), 
-            React.createElement(ProductOptions, {product: this.props.product, price: this.state.price, onUpdate: this.onUpdate}), 
-            React.createElement("div", {className: "product-add-to-cart"}, 
+          ),
+          React.createElement("div", {className: "product-information"},
+            React.createElement("h1", {className: "product-title"}, this.props.product.title),
+            React.createElement("div", {className: "product-description", dangerouslySetInnerHTML: {__html: decodeURI(this.props.product.body_html)}}),
+            React.createElement("div", {className: "product-sku"}, "SKU: ", React.createElement("span", null, this.state.sku)),
+            React.createElement(ProductOptions, {product: this.props.product, price: this.state.price, onUpdate: this.onUpdate}),
+            React.createElement("div", {className: "product-add-to-cart"},
               React.createElement("button", {className: "add-to-cart-button"}, "Add To Cart")
             )
           )
@@ -696,10 +696,10 @@
   var ProductPage = React.createClass({displayName: "ProductPage",
     render: function() {
       return (
-        React.createElement("div", null, 
-          React.createElement(Product, {product: this.props.product}), 
-          React.createElement("div", {className: "related-products-container"}, 
-            React.createElement("h3", {className: "related-products-heading"}, "Can't find the perfect 'stache? Keep looking below!"), 
+        React.createElement("div", null,
+          React.createElement(Product, {product: this.props.product}),
+          React.createElement("div", {className: "related-products-container"},
+            React.createElement("h3", {className: "related-products-heading"}, "Can't find the perfect 'stache? Keep looking below!"),
             React.createElement(RelatedProducts, {products: Resources.buildRelatedProducts(this.props.product, 4)})
           )
         )
