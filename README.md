@@ -1,5 +1,4 @@
-# Impulse
-## A.K.A. Shopify Frankenstein
+# Impulse (A.K.A. Shopify Frankenstein)
 
 
                                          .....
