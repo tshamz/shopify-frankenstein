@@ -1,28 +1,30 @@
-# Impulse, Buy BVAccel (A.K.A. Shopify Frankenstein)
+# Impulse Buy BVAccel
+## a.k.a. The Artist Formerly Known as Shopify Frankenstein
+## a.k.a. Shopify Frankenstein
 
-~Staging site can be found [here](http://bva-tyler3.myshopify.com/).~ <-- unreliable
+---
 
+[Staging site](http://bva-tyler3.myshopify.com/). (using reactjs for views)
+[Production site](http://sunstaches.com/). (uses old code and homebaked templating)
 
-Production site using old code can be found [here](http://sunstaches.com/).
+                                     .....
+                                    C C  /
+                                   /<   /
+                    ___ __________/_#__=o
+                   /(- /(\_\________   \
+                   \ ) \ )_      \o     \
+                   /|\ /|\       |'     |
+                                 |     _|
+                                 /o   __\
+                                / '     |
+                               / /      |
+                              /_/\______|
+                             (   _(    <
+                              \    \    \
+                               \    \    |
+                                \____\____\
+                              ____\_\__\_\
+                             /`   /`     o\
+                             |___ |_______|
 
-
-
-                                         .....
-                                        C C  /
-                                       /<   /
-                        ___ __________/_#__=o
-                       /(- /(\_\________   \
-                       \ ) \ )_      \o     \
-                       /|\ /|\       |'     |
-                                     |     _|
-                                     /o   __\
-                                    / '     |
-                                   / /      |
-                                  /_/\______|
-                                 (   _(    <
-                                  \    \    \
-                                   \    \    |
-                                    \____\____\
-                                  ____\_\__\_\
-                                 /`   /`     o\
-                                 |___ |_______|
+### Raaaaawrr! I NEED MORE JEGGINGS!!!!!
