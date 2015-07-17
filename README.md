@@ -1,8 +1,8 @@
 # Impulse Buy BVAccel
-# a.k.a. The Artist Formerly Known as Shopify Frankenstein
-# a.k.a. Shopify Frankenstein
 
 ---
+###### a.k.a. The Artist Formerly Known as Shopify Frankenstein
+###### a.k.a. Shopify Frankenstein
 
 [Staging site](http://bva-tyler3.myshopify.com/). (using reactjs for views)
 
@@ -28,4 +28,4 @@
                              /`   /`     o\
                              |___ |_______|
 
-### Raaaaawrr! I NEED MORE JEGGINGS!!!!!
+###### Raaaaawrr! I NEED MORE JEGGINGS!!!!!
