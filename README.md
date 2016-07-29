@@ -1,6 +1,8 @@
-# Impulse Buy BVAccel
+# The Artist Originally known as Shopify Frankenstein
 
 ---
+
+###### a.k.a. Impulse Buy BVAccel
 ###### a.k.a. The Artist Formerly Known as Shopify Frankenstein
 ###### a.k.a. Shopify Frankenstein
 
@@ -28,4 +30,4 @@
                              /`   /`     o\
                              |___ |_______|
 
-###### Raaaaawrr! I NEED MORE YAVASCRIPT!!!!!
+###### Raaaaawrr! I NEED MORE FRAMEWORKS!!!!!
