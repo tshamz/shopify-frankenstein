@@ -1,15 +1,3 @@
-# The Artist Originally known as Shopify Frankenstein
-
----
-
-###### a.k.a. Impulse Buy BVAccel
-###### a.k.a. The Artist Formerly Known as Shopify Frankenstein
-###### a.k.a. Shopify Frankenstein
-
-[Staging site](http://bva-tyler3.myshopify.com/). (using reactjs for views)
-
-[Production site](http://sunstaches.com/). (uses old code and homebaked templating)
-
                                      .....
                                     C C  /
                                    /<   /
@@ -30,4 +18,13 @@
                              /`   /`     o\
                              |___ |_______|
 
-###### Raaaaawrr! I NEED MORE FRAMEWORKS!!!!!
+# Shopify Frankenstein
+Read more here: https://www.shopify.com/partners/blog/28500611-using-javascript-to-super-power-your-clients-shopify-site
+---
+
+###### a.k.a. Impulse Buy BVAccel
+###### a.k.a. The Artist Formerly Known as Shopify Frankenstein
+###### a.k.a. Shopify Frankenstein
+
+[Original Site](http://sunstaches.com/). (uses old code and homebaked views)
+[ReactJS Version](http://bva-tyler3.myshopify.com/). (using ReactJS for views)
