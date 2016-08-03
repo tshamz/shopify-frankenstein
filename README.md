@@ -19,9 +19,12 @@
                              |___ |_______|
 
 # Shopify Frankenstein
-Read more here:
-https://www.shopify.com/partners/blog/28500611-using-javascript-to-super-power-your-clients-shopify-site
----
+
 [Original Site](http://sunstaches.com/). (uses old code and homebaked views)
 
 [ReactJS Version](http://bva-tyler3.myshopify.com/). (using ReactJS for views)
+
+---
+
+Read more here:
+https://www.shopify.com/partners/blog/28500611-using-javascript-to-super-power-your-clients-shopify-site
