@@ -26,5 +26,5 @@
 
 ---
 
-Read more here:
-https://www.shopify.com/partners/blog/28500611-using-javascript-to-super-power-your-clients-shopify-site
+Read more [here](https://www.shopify.com/partners/blog/28500611-using-javascript-to-super-power-your-clients-shopify-site).
+
