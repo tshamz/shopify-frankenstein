@@ -1,0 +1,17 @@
+# linguist-vendored
+# special-vendored-path/* linguist-vendored
+# jquery.js linguist-vendored=false
+
+dev/styles/vendor/* linguist-vendored
+dev/scripts/!(init).js linguist-vendored
+
+
+# linguist-documentation
+# project-docs/* linguist-documentation
+# linguist-documentation=false
+
+
+# linguist-language
+# *.rb linguist-language=
+
+dev/scripts/*.jsx linguist-language=JavaScript
